@@ -300,10 +300,6 @@ local get_valid_buffers = function()
     return Buffer.new(b)
   end, fn.getbufinfo({ buflisted = 1 }))
 
-  buffers = filter(function(buffer)
-    return buffer.filetype ~= "netrw"
-  end, buffers)
-
   if _G.cokeline.config.buffers.filter_valid then
     buffers = filter(_G.cokeline.config.buffers.filter_valid, buffers)
   end
