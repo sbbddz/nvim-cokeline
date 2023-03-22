@@ -124,7 +124,7 @@ Component.shorten = function(self, to_width, direction)
   -- `fn.strcharpart` can fail with wide characters. For example,
   -- `fn.strcharpart("｜", 0, 1)` will still return "｜" since that character
   -- takes up two columns. This is to handle such cases.
-  if not fn.strwidth(self.text) == to_width then
+  if fn.strwidth(self.text) ~= to_width then
     local fmt = (direction == "left" and "%s…")
       or (direction == "right" and "…%s")
       or "%s "
